@@ -61,8 +61,6 @@
 </style>
 
 <script>
-
-
     function clearText() {
         document.getElementById('inputTextToSave').value = "";
     }
@@ -124,7 +122,7 @@
         <div class="md-form amber-textarea active-amber-textarea">
             <textarea id="inputTextToSave" class="md-textarea form-control" rows="10" cols="17"
                 placeholder="Enter text here..."></textarea>
-            <span id="display_count">0</span>/ 500 words
+            <span id="display_count">0</span>/ 500 characters
         </div>
     </div>
 </div>
@@ -209,30 +207,3 @@
 </form>
 </div>
 </section>
-
-<!-- Display Result -->
-<!-- <form class="response-wrapper" id="response-form" method="post">
-            <div class="response-box">
-                <p class="description"></p>
-                <div class="scale-block">
-                    <img src="https://dg8me5cc8ch23.cloudfront.net/img/illustrations/sta/scale.svg" alt="scale">
-                    <img class="opacity-scale" src="https://dg8me5cc8ch23.cloudfront.net/img/illustrations/sta/opacity-scale.svg" alt="scale">
-                    <img class="system-white-line" src="https://dg8me5cc8ch23.cloudfront.net/img/illustrations/sta/white-line-test.svg" alt="scale">
-                    <input class="system-slider-scale" name="range" placeholder="range" type="range" value="" min="-1" max="1" step="0.01">
-                    <input class="message-id" type="hidden">
-                </div>
-                <div class="result-line">
-                    <div class="result-block">
-                        <h3>Result:</h3>
-                        <p class="system-result system-result-count"></p>
-                        <h3>Sentiment:</h3>
-                        <h3 class="blue capitalize system-sentiment-status"></h3>
-                    </div>
-                    <img src="https://dg8me5cc8ch23.cloudfront.net/img/illustrations/sta/board.svg" alt="board">
-                </div>
-            </div>
-            <div class="dots-text response-buttons">
-                <input type="submit" value="I Agree" class="link submit-button"/>
-                <p class="link link-white my-score-button">You could do better...</p>
-            </div>
-        </form> -->
