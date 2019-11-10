@@ -107,7 +107,7 @@ router.get('/translate', ensureAuthenticated, (req, res) =>
 // SET STORAGE
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, '../node_passport_login-master/views/upload')
+    cb(null, '../fyp/views/upload')
   },
   filename: (req, file, cb) => {
     console.log(file);
