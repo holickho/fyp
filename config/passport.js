@@ -14,7 +14,7 @@ module.exports = function(passport) {
         email: email
       }).then(user => {
         if (!user) {
-          return done(null, false, { message: 'Invalid email or password' });
+          return done(null, false, { message: 'Incorrect email or password, please try again' });
         }
 
         // Match password
@@ -23,7 +23,7 @@ module.exports = function(passport) {
           if (isMatch) {
             return done(null, user);
           } else {
-            return done(null, false, { message: 'Invalid email or password' });
+            return done(null, false, { message: 'Incorrect email or password, please try again' });
           }
         });
       });
