@@ -7,6 +7,9 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 <style>
+    body{
+        font-family: Comic Sans MS;
+    }
     .trbtn {
         height: 90px;
     }
@@ -23,7 +26,7 @@
     }
 
     .trbtn button:hover {
-        background-color: lightsteelblue;
+        background-color: rgb(231, 234, 238);
         color: white;
     }
 
@@ -61,6 +64,8 @@
         content: "";
         display: table;
         clear: both;
+        border-color: black;
+        border-style: solid;
     }
 
     .modal {
@@ -114,31 +119,31 @@
         border-radius: 15px;
         padding: 13px;
         width: 240px;
-        background-color: lightsteelblue;
+        background-color:black;
         border-color: transparent;
-        color: black;
+        color: white;
         margin-top: 0.5%;
         margin-left: 40%;
     }
 
     .myBtn button:hover {
-        background-color: lightsteelblue;
-        color: white;
+        background-color:lightgrey;
+        color: black;
     }
 
     .myBtn button:focus {
-        background-color: lightsteelblue;
-        color: white;
+        background-color:lightgrey;
+        color: black;
     }
 
     .myBtn button:active {
-        background-color: lightsteelblue;
-        color: white;
+        background-color:lightgrey;
+        color: black;
     }
 
     .myBtn button:hover {
-        background-color: lightsteelblue;
-        color: white;
+        background-color:lightgrey;
+        color: black;
     }
 
     .btn3 button {
@@ -171,6 +176,8 @@
 
 </style>
 
+<body>
+
 <script>
     
         $(document).ready(function () {
@@ -192,7 +199,7 @@
         }); 
     </script>
 
-<div class="ground" onclick="closeshare()">
+<!-- <div class="ground" onclick="closeshare()">
     <div style="margin-left: 7%;">
         <table width="1600px">
             <tr>
@@ -205,16 +212,18 @@
             </tr>
         </table>
     </div>
-</div>
+</div> -->
 
-<div style="margin-bottom: 1%;margin-top:5%" class="btn3">
+
+<div style="margin-bottom: 1%;" class="btn3" >
     <button>Text</button>
     <button onclick="modelUploadFile()">Documents</button>
 </div>
 <div class="row">
     <div class="md-form amber-textarea active-amber-textarea">
         <textarea id="inputTextToSave" class="md-textarea form-control" rows="10" cols="60"
-            placeholder="Enter text here..."></textarea>
+            placeholder="Enter text here..." style="border-color: black;
+            border-style: solid;"></textarea>
         <span id="display_count">0</span>/ 500 characters
     </div>
     <div class="md-form amber-textarea active-amber-textarea">
@@ -298,3 +307,5 @@
 <div >
     <textarea placeholder="Output here" rows="10" cols="125" style="margin-top: 2%;margin-left: -1%;"></textarea>
 </div>
+
+</body>
