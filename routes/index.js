@@ -38,22 +38,26 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage })
 
-router.get('/uploadFile', (req,res)=>{
-  res.render('uploadFile');
-})
 // Uploading single file
 router.post('/uploadfile', upload.single('file'), (req, res, next) => {
   const file = req.file
-  if (!file) {
-      const error = new Error('Please upload a file')
-      error.httpStatusCode = 400
-      return next(error)
-  }
 });
 
 //redirect to sentiment page
 router.get('/sentiment', (req, res) => {
   res.render('sentiment');
+});
+
+router.get('/try', (req, res) => {
+  res.render('try');
+});
+
+router.get('/try2', (req, res) => {
+  res.render('try2');
+});
+
+router.get('/try3', (req, res) => {
+  res.render('try3');
 });
 
 router.get('/mainPage', ensureAuthenticated, (req, res) =>
@@ -63,5 +67,9 @@ router.get('/mainPage', ensureAuthenticated, (req, res) =>
   })
 );
 
+fs.readFile('data.csv', 'utf8', function (err, data) {
+  var dataArray = data.split(/\r?\n/);
+  console.log(dataArray);
+});
 
 module.exports = router;

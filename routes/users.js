@@ -79,7 +79,7 @@ router.post('/register', (req, res) => {
 // Login
 router.post('/login', (req, res, next) => {
   passport.authenticate('local', {
-    successRedirect: '/dashboard',
+    successRedirect: '/mainPage',
     failureRedirect: '/users/login',
     failureFlash: true
   })(req, res, next);
@@ -92,12 +92,6 @@ router.get('/logout', (req, res) => {
   res.redirect('/users/login');
 });
 
-router.post('/googleLogin', (req, res) => {
-  // req.session.user = req.body.email;
-  // req.session.imageURL = req.body.imageURL;
-  res.redirect('/dashboard');
-  //res.send(true);
-});
 
 //import csv & export
 // router.get('/', function(req, res, next) {

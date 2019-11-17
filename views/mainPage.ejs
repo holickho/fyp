@@ -1,3 +1,6 @@
+<!DOCTYPE html>
+<head>
+
 <script src="js/query.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -5,6 +8,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    
+</head>
 
 <style>
     body{
@@ -227,7 +232,7 @@
         <span id="display_count">0</span>/ 500 characters
     </div>
     <div class="md-form amber-textarea active-amber-textarea">
-        <textarea id="inputTextToSave" class="md-textarea form-control" rows="10" cols="60"
+        <textarea  class="md-textarea form-control" rows="10" cols="60"
             placeholder="Your part here..."></textarea>
     </div>
 </div>
@@ -235,8 +240,6 @@
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="close">&times;</span>
-        <!-- <p id="polarity">Polarity:</p>
-        <p id="Emotion">Emotion: <img src="images/angry.png"></p> -->
         <form name="form" class="sta-main-form open" action="/uploadfile" method="post" enctype="multipart/form-data">
             <div style="margin-left:30%">
                 <label for="file" style="font-size: xx-large;">Choose a document</label></br>
@@ -248,10 +251,10 @@
             </div>
         </form>
 
-        <script>
+        <script type="text/javascript">
             function validate() {
                 var file = form.file.value;
-                var reg = /(.*?)\.(txt|csv|xml|)$/;
+                var reg = /^([a-zA-Z0-9\s_\\.\-:])+(.csv|.txt|.xml)$/;
                 if (!file.match(reg)) {
                     alert("Invalid File");
                     return false;
@@ -308,4 +311,6 @@
     <textarea placeholder="Output here" rows="10" cols="125" style="margin-top: 2%;margin-left: -1%;"></textarea>
 </div>
 
+
 </body>
+</html>
