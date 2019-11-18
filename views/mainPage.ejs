@@ -69,8 +69,8 @@
         content: "";
         display: table;
         clear: both;
-        border-color: black;
-        border-style: solid;
+        /*border-color: black;*/
+        /*border-style: solid;*/
     }
 
     .modal {
@@ -127,8 +127,7 @@
         background-color:black;
         border-color: transparent;
         color: white;
-        margin-top: 0.5%;
-        margin-left: 40%;
+        margin-top: 2%;
     }
 
     .myBtn button:hover {
@@ -177,6 +176,29 @@
         background-color: lightsteelblue;
         color: white;
     }
+    
+    .optionswitch{
+        height: 350px;
+        width: 650px;
+        /*border: 1px solid;*/
+        margin-left: 50px;
+    }
+
+    .translatetable{
+        width: 1350px;
+        align-content: center;
+        /*border: 1px solid;*/
+    }
+
+    /*.translatetable td{
+
+        border: 1px solid;
+    }*/
+
+    .outputanalysis {
+        width:1350px;
+        /*border: 1px solid;*/
+    }
 
 
 </style>
@@ -224,18 +246,27 @@
     <button>Text</button>
     <button onclick="modelUploadFile()">Documents</button>
 </div>
-<div class="row">
-    <div class="md-form amber-textarea active-amber-textarea">
-        <textarea id="inputTextToSave" class="md-textarea form-control" rows="10" cols="60"
-            placeholder="Enter text here..." style="border-color: black;
-            border-style: solid;"></textarea>
-        <span id="display_count">0</span>/ 500 characters
-    </div>
-    <div class="md-form amber-textarea active-amber-textarea">
-        <textarea  class="md-textarea form-control" rows="10" cols="60"
-            placeholder="Your part here..."></textarea>
-    </div>
-</div>
+
+<table class="translatetable">
+    <tr>
+        <td width="750px">
+            <div class="md-form amber-textarea active-amber-textarea">
+                <textarea id="inputTextToSave" class="md-textarea form-control" rows="13" cols="60"
+                    placeholder="Enter text here..." style="border-color: black;
+                    border-style: solid; border-radius: 6px;"></textarea>
+                <span id="display_count">0</span>/ 500 characters
+            </div>
+        </td>
+        <td width="650px">
+            <div class="optionswitch">
+                <div class="optiondiv">
+                    <!-- views/option.ejs -->
+                    <% include ../views/option %>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
 
 <div id="myModal" class="modal">
     <div class="modal-content">
@@ -303,14 +334,37 @@
         </script>
     </div>
 </div>
-<div class="myBtn">
-    <button >ANALYZE</button>
+<div class="myBtn" style="text-align: center;">
+        <button onclick="showLoad()">ANALYZE</button>
+</div>
+
+<br>
+
+<div class="outputanalysis" style="width: 1350px; border: 1px solid;  border-radius: 6px;">
+    <!-- views/result.ejs -->
+    <% include ../views/emoji %>
 </div>
 
 <div >
-    <textarea placeholder="Output here" rows="10" cols="125" style="margin-top: 2%;margin-left: -1%;"></textarea>
-</div>
+        <iframe src="http://127.0.0.1:5500/views/showdata.html"></iframe>
+
+ </div>
 
 
 </body>
+
+<!--Loading Images-->
+<div id="load" class="d-flex justify-content-center">
+        <div class="spinner-grow text-primary" role="status" style="height: 20px; width: 20px;"></div>&nbsp;&nbsp;
+        <div class="spinner-grow text-primary" role="status" style="height: 20px; width: 20px;"></div>&nbsp;&nbsp;
+        <div class="spinner-grow text-primary" role="status" style="height: 20px; width: 20px;"></div>
+</div>
+
+<!--Loading Script-->
+<script>
+    function showLoad(){
+        varx = document.getElementsById("load");
+        x.style.visibility = "hidden";
+    }
+</script>
 </html>

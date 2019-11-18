@@ -25,6 +25,23 @@ router.get('/translate', ensureAuthenticated, (req, res) =>
   })
 );
 
+
+// Manage Corpus
+router.get('/corpus', ensureAuthenticated, (req, res) =>
+  res.render('corpus', {
+    user: req.user,
+    layout: 'mainLayout',
+  })
+);
+
+// Option
+router.get('/option', ensureAuthenticated, (req, res) =>
+  res.render('option', {
+    user: req.user,
+    layout: 'mainPage',
+  })
+);
+
 //Upload File (Final)
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -56,9 +73,7 @@ router.get('/try2', (req, res) => {
   res.render('try2');
 });
 
-router.get('/try3', (req, res) => {
-  res.render('try3');
-});
+
 
 router.get('/mainPage', ensureAuthenticated, (req, res) =>
   res.render('mainPage.ejs', {
@@ -67,9 +82,9 @@ router.get('/mainPage', ensureAuthenticated, (req, res) =>
   })
 );
 
-fs.readFile('data.csv', 'utf8', function (err, data) {
-  var dataArray = data.split(/\r?\n/);
-  console.log(dataArray);
-});
+// fs.readFile('data.csv', 'utf8', function (err, data) {
+//   var dataArray = data.split(/\r?\n/);
+//   console.log(dataArray);
+// });
 
 module.exports = router;

@@ -25,11 +25,7 @@
                 src="/images/backgrey.png" 
                 width="25" 
                 height="25">
-        </div>
-        <br>
-        <a href="#" class="coolbtn" 
-        onclick="window.location.replace('/translate');" style="color: black;">Translation</a>
-        <hr>
+        </div><br>
         <a href="#" class="coolbtn" 
         onclick="window.location.replace('/mainPage');" style="color: black;">Subjectivity Analysis</a>
         <hr>
@@ -37,41 +33,41 @@
         onclick="window.location.replace('/mainPage');"style="color: black;">Sentiment Analysis</a>
         <hr>
         <a href="#" class="coolbtn" 
-        onclick="window.location.replace('/dashboard');" style="color: black;">Manage Corpus</a>
+        onclick="window.location.replace('/corpus');" style="color: black;">Manage Corpus</a>
         <hr>
         <a href="#" class="coolbtn" 
         onclick="window.location.replace('/dashboard');" style="color: black;">Manual Annotation</a>
         <hr>
-
     </div>
     
-    <div class="topbar">
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
-                aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="navbtn">
-            <img id='navbtn' onMouseOver="" onMouseOut="" onClick="openNav()" src="/images/hamgrey.png" width="25" height="25">
-            </div>
-            <a class="navbar-brand" href="/dashboard">Sentiment Analysis</a>
-
-            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
-                <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
-                <ul class="nav navbar-nav navbar-right">Welcome <%= user.name %></ul>
-                &nbsp;&nbsp;&nbsp;&nbsp;
-                <ul class="nav navbar-nav navbar-right">
-                    <a href="/users/logout" >Sign Out</a>
-                </ul>    
-            </div>
-        </nav>
-    </div>
-    <div class="row">
+    <div class="topbar" style="width: 100%; position: fixed; top: 0; overflow: hidden;">
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <div>
+                <!--<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03"
+                    aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>-->
+                </div>
+                <div class="navbtn">
+                <img id='navbtn' onMouseOver="" onMouseOut="" onClick="openNav()" src="/images/hamgrey.png" width="25" height="25">
+                </div>
+                <a class="navbar-brand" href="/dashboard">Sentiment Analysis</a>
+    
+                <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                    <ul class="navbar-nav mr-auto mt-2 mt-lg-0"></ul>
+                    <ul class="nav navbar-nav navbar-right">Welcome <%= user.name %></ul>
+                    &nbsp;&nbsp;&nbsp;&nbsp;
+                    <ul class="nav navbar-nav navbar-right">
+                        <a href="/users/logout" >Sign Out</a>
+                    </ul>    
+                </div>
+            </nav>
+        </div>
+        <div class="row" onclick="closeNav()">
         <div class="col-md-6 offset-md-3" style="background-color:azure； margin-top；25px;padding:20px;">
         </div>
 
-        <div class="container"><%- body %></div>
+        <div class="maincontainer"><%- body %></div>
 
     </div>
 
@@ -79,7 +75,7 @@
 
 <script>
     function openNav() {
-			document.getElementById("leftbar").style.width = "270px";
+			document.getElementById("leftbar").style.width = "240px";
     }
     
     function closeNav() {
@@ -88,6 +84,15 @@
 </script>
 
 <style>
+    .maincontainer{
+        width: 88%;
+        padding-right: 15px;
+        padding-left: 15px;
+        margin-right: auto;
+        margin-left: auto;
+        padding-top: 60px;
+    }
+
     .sidenav{
         height: 100%; /* 100% Full-height */
         width: 0; /* 0 width - change this with JavaScript */
@@ -104,7 +109,7 @@
     .sidenav a {
         padding: 8px 8px 8px 35px;
         text-decoration: none;
-        font-size: 20px;
+        font-size: 15px;
         text-align: center;
         margin-right: 30px;
         color: #818181;
@@ -122,7 +127,6 @@
 
     .navback {
         padding-left: 23px;
-    
     }
     
     .sizebar img {
@@ -141,6 +145,15 @@
 
     .navbar-brand {
         margin-left: 15px;
+    }
+
+    .navbar {
+        background-color: lightsteelblue;
+    }
+
+    .loading{
+        text-align: center;
+        margin: auto;
     }
 </style>
 
