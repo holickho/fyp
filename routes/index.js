@@ -73,6 +73,10 @@ router.get('/try2', (req, res) => {
   res.render('try2');
 });
 
+router.get('/manualAnnotation', ensureAuthenticated , (req, res) => {
+  res.render('manualAnnotation.ejs');
+});
+
 
 
 router.get('/mainPage', ensureAuthenticated, (req, res) =>
@@ -86,5 +90,6 @@ router.get('/mainPage', ensureAuthenticated, (req, res) =>
 //   var dataArray = data.split(/\r?\n/);
 //   console.log(dataArray);
 // });
+
 
 module.exports = router;

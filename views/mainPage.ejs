@@ -8,6 +8,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
     
 </head>
 
@@ -200,6 +201,61 @@
         /*border: 1px solid;*/
     }
 
+    .langbtn {
+        background-color:lightsteelblue;
+        color: black;
+        padding: 8px 30px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .act{
+        background-color: rgb(90, 141, 207);
+        color: white;
+        box-shadow: 0 8px 8px 0 lightslategrey;
+    }
+
+    .langbtn:hover{
+        background-color: rgb(233, 206, 206);
+        box-shadow: 0 8px 8px 0 lightslategrey;
+    }
+
+
+    /* With Translation Option YES/NO */
+    .btn {
+        background-color:lightsteelblue;
+        color: black;
+        padding: 8px 30px;
+        font-size: 15px;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .active{
+        background-color: rgb(90, 141, 207);
+        color: white;
+        box-shadow: 0 8px 8px 0 lightslategrey;
+    }
+    .btn:hover{
+        background-color: rgb(233, 206, 206);
+        box-shadow: 0 8px 8px 0 lightslategrey;
+    }
+
+    .optioncontent p{
+        font-size: 16px;
+        font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    .aloption input, label{
+        cursor: pointer;
+    }
+
+
 
 </style>
 
@@ -226,26 +282,11 @@
         }); 
     </script>
 
-<!-- <div class="ground" onclick="closeshare()">
-    <div style="margin-left: 7%;">
-        <table width="1600px">
-            <tr>
-                <td class="trbtn" >
-                    <button id="translate" class="translate" onclick="engstaycool()">TRANSLATION</button>
-                    <button id="subjectivity" class="subjectivity" onclick="chistaycool()">SUBJECTIVITY
-                        ANALYSIS</button>
-                    <button id="sentiment" class="sentiment" onclick="malstaycool()">SENTIMENT ANALYSIS</button>
-                </td>
-            </tr>
-        </table>
-    </div>
-</div> -->
-
-
 <div style="margin-bottom: 1%;" class="btn3" >
     <button>Text</button>
     <button onclick="modelUploadFile()">Documents</button>
 </div>
+
 
 <table class="translatetable">
     <tr>
@@ -261,7 +302,110 @@
             <div class="optionswitch">
                 <div class="optiondiv">
                     <!-- views/option.ejs -->
-                    <% include ../views/option %>
+                    <div class="optioncontent">
+                            <!--- Select Language -->
+                            <div>
+                                <p>Select your Language</p>
+                                <div id="languageoption">
+                                    <button id="engBtn" class="langbtn act">ENGLISH</button>&nbsp;
+                                    <button id= "engMalayBtn" class="langbtn">ENGLISH - MALAY</button>&nbsp;
+                                    <button id= "engChineseBtn" class="langbtn">ENGLISH - CHINESE</button>
+                                </div>
+                        
+                                <script>
+                                    // Language Option Stay Active When Clicked
+                                    var heads = document.getElementById("languageoption");
+                                    var button = heads.getElementsByClassName("langbtn");
+                                    for (var j = 0; j < button.length; j++) {
+                                        button[j].addEventListener("click", function() {
+                                            var currents = document.getElementsByClassName("act");
+                                            currents[0].className = currents[0].className.replace(" act", "");
+                                            this.className += " act";
+                                        });
+                                    }
+                                </script>
+                    
+                            </div>
+                            
+                            <br>
+                        
+                            <!--- Select With Translation -->
+                            <div id="transoption">
+                                <p>With Translation ?</p>
+                                <button id="yesBtn" class="btn active">YES</button>&nbsp;
+                                <button id="noBtn" class="btn">NO</button>
+                        
+                                <script>
+                                    // With Translate Option Stay Active When Clicked
+                                    var header = document.getElementById("transoption");
+                                    var btns = header.getElementsByClassName("btn");
+                                    for (var i = 0; i < btns.length; i++) {
+                                        btns[i].addEventListener("click", function() {
+                                            var current = document.getElementsByClassName("active");
+                                            current[0].className = current[0].className.replace(" active", "");
+                                            this.className += " active";
+                                        });
+                                    }
+                                </script>
+                                <div id="showdiv">
+
+                                </div>
+                                <script>
+                                        function myFunction2(){
+                                            value1 = document.getElementbyId("engBtn").selected();
+                                            value2 = document.getElementbyId("yesBtn").selected();
+                                            
+                                            if(value1 == true && value2 == true){
+                                                document.getElementbyId("showdiv").innerHTML = "This is my paragraph";
+                                            }
+                                        }
+                                </script>
+                            </div>
+                            
+                            <br>
+                        
+                            <!--- Select Algorithms -->
+                            <div class="aloption">
+                                <p>Select your Approaches</p>
+                                <table>
+                                    <tr>
+                                        <td width="300px" style="padding: 0px 5px; vertical-align: top;">
+                                            <div class="custom-control custom-checkbox">
+                                                <div><input type="checkbox" class="custom-control-input" id="supervised" checked>
+                                                <label class="custom-control-label" for="supervised">Supervised Learning</label></div>
+                                                    
+                                                <div><input type="checkbox" class="custom-control-input" id="semi">
+                                                <label class="custom-control-label" for="semi">Semi-supervised Learning</label></div>
+                                        
+                                                <div><input type="checkbox" class="custom-control-input" id="lexi">
+                                                <label class="custom-control-label" for="lexi">Lexicon-based Learning</label></div>
+                                            </div>
+                                        </td>
+                                        <td width="300px">
+                                            <div class="hehe custom-control custom-checkbox">
+                                                <div><input type="checkbox" class="custom-control-input" id="a1" checked>
+                                                <label class="custom-control-label" for="a1">Approach 1</label></div>
+                                                    
+                                                <div><input type="checkbox" class="custom-control-input" id="a2">
+                                                <label class="custom-control-label" for="a2">Approach 2</label></div>
+                        
+                                                <div><input type="checkbox" class="custom-control-input" id="a3">
+                                                <label class="custom-control-label" for="a3">Approach 3</label></div>
+                        
+                                                <div><input type="checkbox" class="custom-control-input" id="a4">
+                                                <label class="custom-control-label" for="a4">Approach 4</label></div>
+                        
+                                                <div><input type="checkbox" class="custom-control-input" id="a5">
+                                                <label class="custom-control-label" for="a5">Approach 5</label></div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                        
+                                    <script>
+                                    </script>
+                                </table>
+                            </div>
+                        </div>
                 </div>
             </div>
         </td>
@@ -272,12 +416,12 @@
     <div class="modal-content">
         <span class="close">&times;</span>
         <form name="form" class="sta-main-form open" action="/uploadfile" method="post" enctype="multipart/form-data">
-            <div style="margin-left:30%">
+            <div style="margin-left:40%">
                 <label for="file" style="font-size: xx-large;">Choose a document</label></br>
-                <p style="margin-left: 6%;">Upload a txt, csv or xml file only</p>
-                <input id="file" type="file" name="file" style="margin-left: 10%;" /></br></br>
+                <p style="margin-left: 4%;">Upload a txt, csv or xml file only</p>
+                <input id="file" type="file" name="file" style="margin-left: 7%;" /></br></br>
                 <button type="submit" value="upload" onclick="return validate();" class="btn btn-info btn-rounded"
-                    style="background-color:lightsteelblue;border-color:transparent;color: black;width:30%;margin-top:0.5%;margin-left:15%">Upload
+                    style="background-color:lightsteelblue;border-color:transparent;color: black;width:30%;margin-top:0.5%;margin-left:5%">Upload
                     File</button>
             </div>
         </form>
@@ -346,7 +490,7 @@
 </div>
 
 <div >
-        <iframe src="http://127.0.0.1:5500/views/showdata.html"></iframe>
+        <iframe src="http://127.0.0.1:5500/views/showdata.html" style="width:100%"></iframe>
 
  </div>
 

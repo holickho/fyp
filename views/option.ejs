@@ -118,7 +118,7 @@
         <p>Select your Language</p>
         <div id="languageoption">
             <button class="langbtn act">ENGLISH</button>&nbsp;
-            <button class="langbtn">ENGLISH - MALAY</button>&nbsp;
+            <button id= "engMalayBtn" class="langbtn">ENGLISH - MALAY</button>&nbsp;
             <button class="langbtn">ENGLISH - CHINESE</button>
         </div>
 
@@ -132,6 +132,12 @@
                     currents[0].className = currents[0].className.replace(" act", "");
                     this.className += " act";
                 });
+            }
+        </script>
+
+        <script>
+            function engMalayOnclick(){
+                var engMalay = document.getElementById("engMalayBtn");
             }
         </script>
     </div>
